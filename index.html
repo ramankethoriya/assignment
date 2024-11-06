@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>json2html Test</title>
+    <!-- <style>
+      /* CSS to style the table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        font-weight: bold;
+      }
+      td {
+        vertical-align: top;
+      }
+    </style> -->
+    <style>
+      /* CSS to style the table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-bottom: 1px solid #ddd; /* Only bottom border for the table */
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        font-weight: bold;
+        border-bottom: 1px solid #ddd; /* Line below the header row */
+      }
+      /* Add bottom border only to the Name and Age columns in each row */
+      tbody tr td:nth-child(1),
+      tbody tr td:nth-child(2) {
+        border-bottom: 1px solid #ddd;
+      }
+      /* Ensure no bottom border for the Gender column */
+      tbody tr td:nth-child(3) {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="table-container"></div>
+
+    <script type="module">
+      import json2html from "./json2html.js";
+
+      const data = [
+        { Name: "Alice", Age: 25 },
+        { Name: "Bob", Age: 30 },
+        { Name: "Charlie", Age: 35, Gender: "M" },
+        { Name: "Charlie", Age: 35, Gender: "M" },
+      ];
+
+      // Generate the HTML table and insert it into the page
+      const tableHtml = json2html(data);
+      document.getElementById("table-container").innerHTML = tableHtml;
+    </script>
+  </body>
+</html>
